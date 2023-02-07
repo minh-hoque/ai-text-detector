@@ -1,5 +1,6 @@
 import os
 
+# Needed for UI module deployment
 if os.path.exists("/streamlit/app/module-ai-text-detector/"):
     cache_dir = "/streamlit/app/module-ai-text-detector/"
     os.environ["TRANSFORMERS_CACHE"] = cache_dir
@@ -19,7 +20,6 @@ class LanguageModel:
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.encoder = AutoTokenizer.from_pretrained(model_name_or_path, cache_dir=cache_dir)
         self.model = AutoModelForCausalLM.from_pretrained(model_name_or_path, cache_dir=cache_dir)
-        print(self.device)
         self.model.to(self.device)
         self.model.eval()
         self.start_token = self.encoder(self.encoder.bos_token, return_tensors="pt").data["input_ids"][0]
