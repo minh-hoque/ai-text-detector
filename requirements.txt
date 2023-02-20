@@ -2,3 +2,4 @@ numpy==1.23.5
 streamlit==1.17.0
 transformers==4.24.0
 torch==1.12.1
+st-annotated-text==3.0.0
