@@ -11,7 +11,7 @@ from utils.api_utils import LanguageModel, word_counter, check_password
 # Required in every Clarifai streamlit app
 ################################################
 
-st.set_page_config(layout="wide", page_icon="https://clarifai.com/favicon.svg")
+st.set_page_config(layout="wide")
 
 if check_password():
     if "model_loaded" not in st.session_state:
